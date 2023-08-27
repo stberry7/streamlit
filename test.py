@@ -8,4 +8,9 @@ url = "https://raw.githubusercontent.com/stberry7/streamlit/main/school.csv"
 df = pd.read_csv(url)
 
 # Display the DataFrame in Streamlit
+st.write("Displaying the DataFrame:")
 st.write(df)
+
+# Plotting a bar chart
+st.write("Bar chart based on Total Students in each School:")
+st.bar_chart(df.set_index('School_Name')['Total_Students'])

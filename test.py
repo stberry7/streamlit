@@ -33,23 +33,3 @@ st.pyplot()
 
 # Plotly
 st.write("## Plotly")
-
-# Bar chart
-st.write("### Bar Chart")
-fig = px.bar(df, x=df.index, title="Plotly Bar Chart")
-st.plotly_chart(fig)
-
-# Altair
-st.write("## Altair")
-
-# Bar chart
-st.write("### Bar Chart")
-chart = alt.Chart(df.reset_index()).mark_bar().encode(
-    x='School',
-    y='Name2',
-    color='School'
-).properties(
-    title='Altair Bar Chart'
-)
-st.altair_chart(chart, use_container_width=True)
-

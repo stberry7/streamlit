@@ -1,5 +1,1 @@
-streamlit
-pandas
-matplotlib
-plotly
-altair
+# Streamlit

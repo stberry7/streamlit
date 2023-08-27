@@ -20,16 +20,3 @@ df.set_index('School', inplace=True)
 st.write("## DataFrame")
 st.write(df)
 
-# Matplotlib
-st.write("## Matplotlib")
-
-# Bar chart
-st.write("### Bar Chart")
-plt.figure()
-df.plot(kind='bar')
-plt.title('Matplotlib Bar Chart')
-plt.ylabel('Value')
-st.pyplot()
-
-# Plotly
-st.write("## Plotly")

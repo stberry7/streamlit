@@ -9,6 +9,8 @@ data = {
     'Name4': [439, 35, 635, 861, 510],
     'Name5': [274, 156, 990, 39, 664]
 }
+# Just add it after st.sidebar:
+>>> a = st.sidebar.radio('Choose:',[1,2])
 
 df = pd.DataFrame(data)
 df.set_index('School', inplace=True)

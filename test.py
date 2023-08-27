@@ -17,3 +17,7 @@ df.set_index('School', inplace=True)
 st.write("## DataFrame")
 st.write(df)
 
+# Streamlit Bar Chart
+st.write("## Streamlit Bar Chart")
+st.bar_chart(df)
+

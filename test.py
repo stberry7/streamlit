@@ -10,17 +10,20 @@ data = {
     'Name5': [274, 156, 990, 39, 664]
 }
 
-# Just add it after st.sidebar:
->>> a = st.sidebar.radio('Choose:',[1,2])
+# Sidebar with a radio button
+a = st.sidebar.radio('Choose:', [1, 2])
 
-'_This_ is some __Markdown__'
-a=3
-'dataframe:', data
+# Display Markdown
+st.markdown('_This_ is some **Markdown**')
 
+# If you want to use the variable 'a' for some condition
+if a == 3:
+    st.write('You selected 3')
+
+# Display DataFrame
 df = pd.DataFrame(data)
 df.set_index('School', inplace=True)
 
-# Display the DataFrame
 st.write("## DataFrame")
 st.write(df)
 

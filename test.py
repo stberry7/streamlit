@@ -1,5 +1,8 @@
 import streamlit as st
 import pandas as pd
+import matplotlib.pyplot as plt
+import plotly.express as px
+import altair as alt
 
 # Sample data as a dictionary (Replace this with your CSV read)
 data = {
@@ -12,14 +15,68 @@ data = {
 
 # Convert dictionary to DataFrame
 df = pd.DataFrame(data)
-
-# Set 'category' as index
 df.set_index('category', inplace=True)
 
-# Display the DataFrame in Streamlit
-st.write("Displaying the DataFrame:")
+# Display DataFrame
+st.write("## Displaying the DataFrame:")
 st.write(df)
 
-# Plotting a bar chart
-st.write("Bar chart based on the data:")
-st.bar_chart(df)
+# Matplotlib Charts
+st.write("## Matplotlib Charts")
+
+# Bar Chart
+st.write("### Bar Chart")
+plt.figure(figsize=[10,5])
+df.plot(kind='bar')
+plt.title('Matplotlib Bar Chart')
+plt.ylabel('Value')
+plt.xlabel('Category')
+st.pyplot()
+
+# Line Chart
+st.write("### Line Chart")
+plt.figure(figsize=[10,5])
+df.plot(kind='line')
+plt.title('Matplotlib Line Chart')
+plt.ylabel('Value')
+plt.xlabel('Category')
+st.pyplot()
+
+# Plotly Charts
+st.write("## Plotly Charts")
+
+# Bar Chart
+st.write("### Bar Chart")
+fig = px.bar(df, x=df.index, title="Plotly Bar Chart")
+st.plotly_chart(fig)
+
+# Line Chart
+st.write("### Line Chart")
+fig = px.line(df, x=df.index, title="Plotly Line Chart")
+st.plotly_chart(fig)
+
+# Altair Charts
+st.write("## Altair Charts")
+
+# Bar Chart
+st.write("### Bar Chart")
+chart = alt.Chart(df.reset_index()).mark_bar().encode(
+    x='category',
+    y='Name2',
+    color='category'
+).properties(
+    title='Altair Bar Chart'
+)
+st.altair_chart(chart, use_container_width=True)
+
+# Line Chart
+st.write("### Line Chart")
+chart = alt.Chart(df.reset_index()).mark_line().encode(
+    x='category',
+    y='Name2',
+    color='category'
+).properties(
+    title='Altair Line Chart'
+)
+st.altair_chart(chart, use_container_width=True)
+

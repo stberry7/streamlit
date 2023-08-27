@@ -11,6 +11,11 @@ df = pd.read_csv(url)
 st.write("Displaying the DataFrame:")
 st.write(df)
 
-# Plotting a bar chart
-st.write("Bar chart based on Total Students in each School:")
-st.bar_chart(df.set_index('School_Name')['Total_Students'])
+# Check if the required columns exist in the DataFrame
+if 'School_Name' in df.columns and 'Total_Students' in df.columns:
+    # Plotting a bar chart
+    st.write("Bar chart based on Total Students in each School:")
+    chart_data = df[['School_Name', 'Total_Students']].set_index('School_Name')
+    st.bar_chart(chart_data)
+else:
+    st.write("Could not find the required columns for plotting the bar chart.")
